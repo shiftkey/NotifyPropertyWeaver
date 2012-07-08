@@ -37,7 +37,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\devcert.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build" />
@@ -137,7 +137,7 @@
     <CreateItem Include="@(ReferencePath)" Condition="'%(CopyLocal)'=='true'">
       <Output TaskParameter="Include" ItemName="IlmergeAssemblies" />
     </CreateItem>
-    <Exec Command="&quot;$(SolutionDir)Tools\ilmerge.exe&quot; /out:&quot;$(TargetDir)Merged\$(TargetFileName)&quot; &quot;$(TargetPath)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ') /target:library /keyfile:&quot;$(SolutionDir)key.snk&quot; /targetplatform:v4,C:\Windows\Microsoft.NET\Framework\v4.0.30319" />
+    <Exec Command="&quot;$(SolutionDir)Tools\ilmerge.exe&quot; /out:&quot;$(TargetDir)Merged\$(TargetFileName)&quot; &quot;$(TargetPath)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ') /target:library /keyfile:&quot;$(SolutionDir)devcert.snk&quot; /targetplatform:v4,C:\Windows\Microsoft.NET\Framework\v4.0.30319" />
     <MakeDir Directories="$(SolutionDir)ForSample" />
     <Copy SourceFiles="$(TargetDir)Merged\$(TargetName).dll" DestinationFolder="$(SolutionDir)ForSample" />
     <Copy SourceFiles="$(TargetDir)Merged\$(TargetName).pdb" DestinationFolder="$(SolutionDir)ForSample" />
