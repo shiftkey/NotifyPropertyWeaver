@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Extern href="msobtnid.h"/>
+  <Commands package="guidPackagePkg">
+    <!-- http://blogs.msdn.com/b/martintracy/archive/2006/05/16/599057.aspx     -->
+    <Groups>
+      <Group guid="packageCmdSet" id="SubMenuGroup" priority="0x0000">
+        <Parent guid="packageCmdSet" id="SubMenu"/>
+      </Group>
+      <Group guid="packageCmdSet" id="MenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_PROJECT"/>
+      </Group>
+    </Groups>
+    <Buttons>
+      <Button guid="packageCmdSet" id="cmdConfigure" priority="0x0100" type="Button">
+        <Parent guid="packageCmdSet" id="SubMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <CommandName>cmdConfigure</CommandName>
+          <ButtonText>Configure</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="packageCmdSet" id="cmdDisable" priority="0x0100" type="Button">
+        <Parent guid="packageCmdSet" id="SubMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic2" />
+        <Strings>
+          <CommandName>cmdDisable</CommandName>
+          <ButtonText>Disable</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\Images_32bit.bmp" usedList="bmpPic1, bmpPic2"/>
+    </Bitmaps>
+    <Menus>
+      <Menu guid="packageCmdSet" id="SubMenu" priority="0x0100" type="Menu">
+        <Parent guid="packageCmdSet" id="MenuGroup"/>
+        <Strings>
+          <ButtonText>NotifyPropertyWeaver</ButtonText>
+          <CommandName>NotifyPropertyWeaver</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+  </Commands>
+  <Symbols>
+    <GuidSymbol name="guidPackagePkg" value="{d7cb41bc-0cfc-4747-9399-4b5ed132c898}" />
+    <GuidSymbol name="packageCmdSet" value="{af0fbcae-2924-42bf-adb7-31202b59250a}">
+      <IDSymbol name="SubMenu" value="0x1100"/>
+      <IDSymbol name="SubMenuGroup" value="0x1150"/>
+      <IDSymbol name="MenuGroup" value="0x1020" />
+      <IDSymbol name="cmdConfigure" value="0x0001" />
+      <IDSymbol name="cmdDisable" value="0x0002" />
+    </GuidSymbol>
+    <GuidSymbol name="guidImages" value="{92c00022-0d38-4b08-8216-f4ca11d39c16}" >
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

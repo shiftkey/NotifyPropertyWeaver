@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfDispatcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="617" Width="536">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Name:"  HorizontalAlignment="Right" />
+        <StackPanel Grid.Row="1" HorizontalAlignment="Right"  >
+            <Label Content="Events:" />
+            <Label Content="(newest on top)" />
+        </StackPanel>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Width="200"  Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="2" IsReadOnly="True" Grid.Row="1" Name="eventsTextBox" VerticalScrollBarVisibility="Visible" />
+    </Grid>
+</Window>

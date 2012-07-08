@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3578A7B-09A6-4444-9383-0DEAFA4958BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NotifyPropertyWeaverMsBuildTask</RootNamespace>
+    <AssemblyName>NotifyPropertyWeaverMsBuildTask</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mono.Cecil, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.3\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllPropertiesFinder.cs" />
+    <Compile Include="AssemblyResolver.cs" />
+    <Compile Include="AttributeCleaner.cs" />
+    <Compile Include="BuildEnginePropertyExtractor.cs" />
+    <Compile Include="CecilExtensions.cs" />
+    <Compile Include="CodeGenTypeCleaner.cs" />
+    <Compile Include="EqualityCheckWeaver.cs" />
+    <Compile Include="EventInvokerNameResolver.cs" />
+    <Compile Include="FileChangedChecker.cs" />
+    <Compile Include="IlGeneratedByDependencyProcessor.cs" />
+    <Compile Include="InstructionListExtensions.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ModuleReader.cs" />
+    <Compile Include="ModuleWriter.cs" />
+    <Compile Include="MsCoreReferenceFinder.cs" />
+    <Compile Include="OnChangedWalker.cs" />
+    <Compile Include="FieldToPropertyConverter.cs" />
+    <Compile Include="FieldToPropertyForwarder.cs" />
+    <Compile Include="IsChangedMethodFinder.cs" />
+    <Compile Include="MethodGenerifier.cs" />
+    <Compile Include="NotifyInterfaceFinder.cs" />
+    <Compile Include="ProjectKeyReader.cs" />
+    <Compile Include="RecursiveIlFinder.cs" />
+    <Compile Include="ReferenceCleaner.cs" />
+    <Compile Include="ReturnFixer.cs" />
+    <Compile Include="StackOverflowChecker.cs" />
+    <Compile Include="SupportsCeqChecker.cs" />
+    <Compile Include="TargetPathFinder.cs" />
+    <Compile Include="TypeEqualityFinder.cs" />
+    <Compile Include="NotifyPropertyData.cs" />
+    <Compile Include="DependsOnDataAttributeReader.cs" />
+    <Compile Include="DelegateHolderInjector.cs" />
+    <Compile Include="DoNotNotifyTypeCleaner.cs" />
+    <Compile Include="InterceptorFinder.cs" />
+    <Compile Include="ErrorChecker.cs" />
+    <Compile Include="EventInvokerMethod.cs" />
+    <Compile Include="IlGeneratedByDependencyReader.cs" />
+    <Compile Include="MethodInjector.cs" />
+    <Compile Include="PropertyDataWalker.cs" />
+    <Compile Include="PropertyDependency.cs" />
+    <Compile Include="MappingFinder.cs" />
+    <Compile Include="MemberMapping.cs" />
+    <Compile Include="PropertyData.cs" />
+    <Compile Include="TypeResolver.cs" />
+    <Compile Include="WarningChecker.cs" />
+    <Compile Include="NotifyPropertyDataAttributeReader.cs" />
+    <Compile Include="PropertyWeaver.cs" />
+    <Compile Include="ShouldNotifyForAllWalker.cs" />
+    <Compile Include="TypeNode.cs" />
+    <Compile Include="TypeNodeBuilder.cs" />
+    <Compile Include="MethodFinder.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="..\CommonAssemblyInfo.cs" />
+    <Compile Include="TypeProcessor.cs" />
+    <Compile Include="WeavingException.cs" />
+    <Compile Include="WeavingTask.cs" />
+    <Compile Include="XDocumentExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild">
+    <RemoveDir Directories="$(TargetDir)Merged" />
+    <MakeDir Directories="$(TargetDir)Merged" />
+    <CreateItem Include="@(ReferencePath)" Condition="'%(CopyLocal)'=='true'">
+      <Output TaskParameter="Include" ItemName="IlmergeAssemblies" />
+    </CreateItem>
+    <Exec Command="&quot;$(SolutionDir)Tools\ilmerge.exe&quot; /out:&quot;$(TargetDir)Merged\$(TargetFileName)&quot; &quot;$(TargetPath)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ') /target:library /keyfile:&quot;$(SolutionDir)key.snk&quot; /targetplatform:v4,C:\Windows\Microsoft.NET\Framework\v4.0.30319" />
+    <MakeDir Directories="$(SolutionDir)ForSample" />
+    <Copy SourceFiles="$(TargetDir)Merged\$(TargetName).dll" DestinationFolder="$(SolutionDir)ForSample" />
+    <Copy SourceFiles="$(TargetDir)Merged\$(TargetName).pdb" DestinationFolder="$(SolutionDir)ForSample" />
+  </Target>
+  <UsingTask TaskName="PepitaGet.WeavingTask" AssemblyFile="$(SolutionDir)Tools\PepitaGet.dll" />
+  <Target Name="BeforeBuild">
+    <PepitaGet.WeavingTask />
+  </Target>
+</Project>

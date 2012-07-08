@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NotifyPropertyWeaver</id>
+    <version>$version$</version>
+    <title>Notify Property Weaver</title>
+    <authors>Simon Cropp</authors>
+    <owners>Simon Cropp</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://code.google.com/p/notifypropertyweaver/wiki/Nuget</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Uses IL weaving to inject INotifyPropertyChanged code into properties.</description>
+    <summary />
+    <language>en-AU</language>
+    <tags>WPF Silverlight MVVM WP7 WindowsPhone INotifyPropertyChanged DataBinding ILWeaving</tags>
+  </metadata>
+</package>

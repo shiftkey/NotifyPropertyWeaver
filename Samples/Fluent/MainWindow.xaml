@@ -1,0 +1,40 @@
+﻿<Window x:Class="Fluent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="617" Width="536">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Given Names:"  HorizontalAlignment="Right" />
+        <Label Content="Family Name:" Grid.Row="1" HorizontalAlignment="Right" />
+        <Label Content="Full Name:" Grid.Row="2" HorizontalAlignment="Right"  />
+        <StackPanel Grid.Row="3" HorizontalAlignment="Right"  >
+            <Label Content="Events:" />
+            <Label Content="(newest on top)" />
+        </StackPanel>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Width="200"  Text="{Binding Path=GivenNames, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="200" Text="{Binding Path=FamilyName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true}" />
+        <Label Grid.Column="1" Grid.Row="2" Content="{Binding Path=FullName}" />
+        <TextBox Grid.Column="2" IsReadOnly="True" Grid.Row="3" Name="eventsTextBox" VerticalScrollBarVisibility="Visible" />
+    </Grid>
+</Window>
